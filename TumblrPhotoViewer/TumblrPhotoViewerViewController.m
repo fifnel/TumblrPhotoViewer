@@ -9,6 +9,9 @@
 #import "TumblrPhotoViewerViewController.h"
 
 @implementation TumblrPhotoViewerViewController
+@synthesize RefreshButton;
+@synthesize ImageListView;
+@synthesize DownloadProgress;
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,16 +23,21 @@
 
 #pragma mark - View lifecycle
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [DownloadProgress setProgress:0.0f]; 
+    
     [super viewDidLoad];
 }
-*/
 
 - (void)viewDidUnload
 {
+    [self setRefreshButton:nil];
+    [self setImageListView:nil];
+    [TextView release];
+    TextView = nil;
+    [self setDownloadProgress:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -39,6 +47,32 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc {
+    [RefreshButton release];
+    [ImageListView release];
+    [TextView release];
+    [DownloadProgress release];
+    [super dealloc];
+}
+
+- (IBAction)onRefresh:(id)sender {
+    [self start:@"http://www.google.co.jp/"];
+    [DownloadProgress setProgress:0.0f]; 
+}
+
+- (void)downloading:(int)current of:(int)total
+{
+    if (total>0) {
+        [DownloadProgress setProgress:(current/total)];
+    }
+}
+
+- (void)downloadDidFinish:(NSString *)str
+{
+    [TextView setText:str];
+    [DownloadProgress setProgress:1.0f];
 }
 
 @end
