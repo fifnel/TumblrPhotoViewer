@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TextDownloadDelegate.h"
 
-@interface TextDownload : NSObject
+@interface DataDownloader : NSObject
 {
 @private
     NSURLConnection *m_conn;

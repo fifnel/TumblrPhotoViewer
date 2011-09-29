@@ -58,7 +58,7 @@
 }
 
 - (IBAction)onRefresh:(id)sender {
-    downloader = [[[TextDownload alloc]init]autorelease];
+    downloader = [[[DataDownloader alloc]init]autorelease];
     [downloader start:@"http://www.google.co.jp/" delegate:self];
     [DownloadProgress setProgress:0.0f]; 
 }
@@ -70,7 +70,7 @@
     }
 }
 
-- (void)downloadDidFinish:(NSString *)str
+- (void)downloadDidFinishWithText:(NSString *)str
 {
     [TextView setText:str];
     [DownloadProgress setProgress:1.0f];

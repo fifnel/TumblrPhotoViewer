@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (TextDownloadDelegate)
+@interface NSObject (DataDownloaderDelegate)
 
 -(void)downloading:(int)current of:(int)total;
--(void)downloadDidFinish:(NSString *)str;
+-(void)downloadDidFinishWithText:(NSString *)str;
+-(void)downloadDidFinishWithBinary:(NSData *)data;
 
 @end
