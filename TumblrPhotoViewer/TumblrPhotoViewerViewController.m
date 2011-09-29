@@ -59,7 +59,7 @@
 
 - (IBAction)onRefresh:(id)sender {
     downloader = [[[DataDownloader alloc]init]autorelease];
-    [downloader start:@"http://www.google.co.jp/" delegate:self];
+    [downloader start:@"http://api.flickr.com/services/feeds/photos_public.gne?tags=%E4%BA%8C%E9%83%8E&lang=en-us&format=rss_200" delegate:self];
     [DownloadProgress setProgress:0.0f]; 
 }
 
