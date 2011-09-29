@@ -1,66 +1,40 @@
 //
-//  XmlDownloadViewController.m
+//  TextDownload.m
 //  TumblrPhotoViewer
 //
-//  Created by fifnel on 2011/09/26.
+//  Created by fifnel on 2011/09/29.
 //  Copyright 2011年 fifnel. All rights reserved.
 //
 
-#import "XmlDownloadViewController.h"
+#import "TextDownload.h"
 
-@implementation XmlDownloadViewController
+@implementation TextDownload
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        // Initialization code here.
     }
+    
     return self;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)dealloc
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+    [m_conn cancel];
+    [m_conn release];
+    [m_data release];
     
-    // Release any cached data, images, etc that aren't in use.
+    [super dealloc];
 }
 
-#pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-*/
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)start:(NSString *)url
+-(void)start:(NSString *)url delegate:(NSObject *)delegate;
 {
     [self abort];
-
+    
+    m_delegate = delegate;
+    
     m_total_length = 0;
     m_data = [[NSMutableData alloc] initWithCapacity:0];
     NSURLRequest *req = [NSURLRequest
@@ -82,25 +56,7 @@
 		m_data = nil;
 	}
     m_total_length = 0;
-}
-
--(void)downloading:(int)current of:(int)total
-{
-    
-}
-
--(void)downloadDidFinish:(NSString *)str
-{
-    
-}
-
-- (void)dealloc
-{
-    [m_conn cancel];
-    [m_conn release];
-    [m_data release];
-    
-    [super dealloc];
+    m_delegate = nil;
 }
 
 //--------------------------------------------
@@ -112,15 +68,15 @@
     [m_data setLength:0];
     m_total_length = [response expectedContentLength];
     
-    [self downloading:[m_data length] of:m_total_length];
+    [m_delegate downloading:[m_data length] of:m_total_length];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSLog(@"didReceiveData");
     [m_data appendData:data];
-
-    [self downloading:[m_data length] of:m_total_length];
+    
+    [m_delegate downloading:[m_data length] of:m_total_length];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -153,8 +109,8 @@
 			break;
 		}
 	}
-
-    [self downloadDidFinish:data_str];
+    
+    [m_delegate downloadDidFinish:data_str];
     [self abort];
 }
 

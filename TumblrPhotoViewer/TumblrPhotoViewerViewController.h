@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XmlDownloadViewController.h"
+#import "TextDownload.h"
 
-@interface TumblrPhotoViewerViewController : XmlDownloadViewController {
+@interface TumblrPhotoViewerViewController : UIViewController {
+    TextDownload *downloader;
+    
     UIToolbar *RefreshButton;
     UIScrollView *ImageListView;
     UIProgressView *DownloadProgress;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C07A1873143413C700860931 /* TextDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C07A1872143413C700860931 /* TextDownload.m */; };
 		C0B1DB991430707400FA54FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1DB981430707400FA54FF /* UIKit.framework */; };
 		C0B1DB9B1430707400FA54FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1DB9A1430707400FA54FF /* Foundation.framework */; };
 		C0B1DB9D1430707400FA54FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1DB9C1430707400FA54FF /* CoreGraphics.framework */; };
@@ -23,7 +24,6 @@
 		C0B1DBC51430707400FA54FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0B1DBC31430707400FA54FF /* InfoPlist.strings */; };
 		C0B1DBC71430707400FA54FF /* TumblrPhotoViewerTests.h in Resources */ = {isa = PBXBuildFile; fileRef = C0B1DBC61430707400FA54FF /* TumblrPhotoViewerTests.h */; };
 		C0B1DBC91430707400FA54FF /* TumblrPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B1DBC81430707400FA54FF /* TumblrPhotoViewerTests.m */; };
-		C0FC70321430BEF9006C5E21 /* XmlDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FC70311430BEF9006C5E21 /* XmlDownloadViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C07A1871143413C700860931 /* TextDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDownload.h; sourceTree = "<group>"; };
+		C07A1872143413C700860931 /* TextDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDownload.m; sourceTree = "<group>"; };
+		C07A18771434144A00860931 /* TextDownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDownloadDelegate.h; sourceTree = "<group>"; };
 		C0B1DB941430707400FA54FF /* TumblrPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1DB981430707400FA54FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0B1DB9A1430707400FA54FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,8 +60,6 @@
 		C0B1DBC41430707400FA54FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C0B1DBC61430707400FA54FF /* TumblrPhotoViewerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumblrPhotoViewerTests.h; sourceTree = "<group>"; };
 		C0B1DBC81430707400FA54FF /* TumblrPhotoViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumblrPhotoViewerTests.m; sourceTree = "<group>"; };
-		C0FC70301430BEF9006C5E21 /* XmlDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlDownloadViewController.h; sourceTree = "<group>"; };
-		C0FC70311430BEF9006C5E21 /* XmlDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlDownloadViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +165,9 @@
 		C0FC702E1430BE34006C5E21 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C0FC70301430BEF9006C5E21 /* XmlDownloadViewController.h */,
-				C0FC70311430BEF9006C5E21 /* XmlDownloadViewController.m */,
+				C07A1871143413C700860931 /* TextDownload.h */,
+				C07A1872143413C700860931 /* TextDownload.m */,
+				C07A18771434144A00860931 /* TextDownloadDelegate.h */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -281,7 +283,7 @@
 				C0B1DBA51430707400FA54FF /* main.m in Sources */,
 				C0B1DBA91430707400FA54FF /* TumblrPhotoViewerAppDelegate.m in Sources */,
 				C0B1DBAF1430707400FA54FF /* TumblrPhotoViewerViewController.m in Sources */,
-				C0FC70321430BEF9006C5E21 /* XmlDownloadViewController.m in Sources */,
+				C07A1873143413C700860931 /* TextDownload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,7 +58,8 @@
 }
 
 - (IBAction)onRefresh:(id)sender {
-    [self start:@"http://www.google.co.jp/"];
+    downloader = [[[TextDownload alloc]init]autorelease];
+    [downloader start:@"http://www.google.co.jp/" delegate:self];
     [DownloadProgress setProgress:0.0f]; 
 }
 
