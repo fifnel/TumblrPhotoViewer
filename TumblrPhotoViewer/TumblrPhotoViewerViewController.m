@@ -8,6 +8,8 @@
 
 #import "TumblrPhotoViewerViewController.h"
 
+#import "GDataXMLNode.h"
+
 @implementation TumblrPhotoViewerViewController
 @synthesize RefreshButton;
 @synthesize ImageListView;
@@ -72,7 +74,27 @@
 
 - (void)downloadDidFinishWithText:(NSString *)str
 {
-    [TextView setText:str];
+    // parse text as xml
+	NSError* error;
+	GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithXMLString:str options:0 error:&error];
+	GDataXMLElement *rootNode = [document rootElement];
+	
+    // regist namespace
+    NSMutableDictionary *ns = [[NSMutableDictionary alloc]init];
+    [ns setValue:@"http://search.yahoo.com/mrss/" forKey:@"media"];
+
+	// get thumbnails by xpath
+	NSArray* userList = [rootNode nodesForXPath:@"//channel/item/media:thumbnail" namespaces:ns error:&error];
+    NSMutableString *result = [[NSMutableString alloc]init];
+	for(GDataXMLElement* node in userList) {
+		NSLog(@"node:%@", [node stringValue]);
+        [result appendString:[[node attributeForName:@"url"] stringValue]];
+        [result appendString:@"\n"];
+	}
+	
+	[document release];
+    
+    [TextView setText:(NSString *)result];
     [DownloadProgress setProgress:1.0f];
 }
 

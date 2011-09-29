@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C07A1873143413C700860931 /* DataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C07A1872143413C700860931 /* DataDownloader.m */; };
+		C07A18831434AEC300860931 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C07A18821434AEC300860931 /* GDataXMLNode.m */; };
+		C07A18891434B12E00860931 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C07A18881434B12E00860931 /* libxml2.dylib */; };
 		C0B1DB991430707400FA54FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1DB981430707400FA54FF /* UIKit.framework */; };
 		C0B1DB9B1430707400FA54FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1DB9A1430707400FA54FF /* Foundation.framework */; };
 		C0B1DB9D1430707400FA54FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1DB9C1430707400FA54FF /* CoreGraphics.framework */; };
@@ -37,9 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C07A1871143413C700860931 /* DataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DataDownloader.h; sourceTree = "<group>"; };
+		C07A1871143413C700860931 /* DataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDownloader.h; sourceTree = "<group>"; };
 		C07A1872143413C700860931 /* DataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDownloader.m; sourceTree = "<group>"; };
 		C07A18771434144A00860931 /* TextDownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDownloadDelegate.h; sourceTree = "<group>"; };
+		C07A187F1434AEC300860931 /* GDataDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataDefines.h; path = GData/GDataDefines.h; sourceTree = "<group>"; };
+		C07A18801434AEC300860931 /* GDataTargetNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataTargetNamespace.h; path = GData/GDataTargetNamespace.h; sourceTree = "<group>"; };
+		C07A18811434AEC300860931 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = GData/GDataXMLNode.h; sourceTree = "<group>"; };
+		C07A18821434AEC300860931 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = GData/GDataXMLNode.m; sourceTree = "<group>"; };
+		C07A18881434B12E00860931 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		C0B1DB941430707400FA54FF /* TumblrPhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrPhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1DB981430707400FA54FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0B1DB9A1430707400FA54FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +77,7 @@
 				C0B1DB991430707400FA54FF /* UIKit.framework in Frameworks */,
 				C0B1DB9B1430707400FA54FF /* Foundation.framework in Frameworks */,
 				C0B1DB9D1430707400FA54FF /* CoreGraphics.framework in Frameworks */,
+				C07A18891434B12E00860931 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +95,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C07A187E1434AEB000860931 /* GData */ = {
+			isa = PBXGroup;
+			children = (
+				C07A187F1434AEC300860931 /* GDataDefines.h */,
+				C07A18801434AEC300860931 /* GDataTargetNamespace.h */,
+				C07A18811434AEC300860931 /* GDataXMLNode.h */,
+				C07A18821434AEC300860931 /* GDataXMLNode.m */,
+			);
+			name = GData;
+			sourceTree = "<group>";
+		};
 		C0B1DB891430707400FA54FF = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +128,7 @@
 		C0B1DB971430707400FA54FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C07A18881434B12E00860931 /* libxml2.dylib */,
 				C0B1DB981430707400FA54FF /* UIKit.framework */,
 				C0B1DB9A1430707400FA54FF /* Foundation.framework */,
 				C0B1DB9C1430707400FA54FF /* CoreGraphics.framework */,
@@ -120,6 +140,7 @@
 		C0B1DB9E1430707400FA54FF /* TumblrPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				C07A187E1434AEB000860931 /* GData */,
 				C0FC702E1430BE34006C5E21 /* common */,
 				C0B1DBA71430707400FA54FF /* TumblrPhotoViewerAppDelegate.h */,
 				C0B1DBA81430707400FA54FF /* TumblrPhotoViewerAppDelegate.m */,
@@ -284,6 +305,7 @@
 				C0B1DBA91430707400FA54FF /* TumblrPhotoViewerAppDelegate.m in Sources */,
 				C0B1DBAF1430707400FA54FF /* TumblrPhotoViewerViewController.m in Sources */,
 				C07A1873143413C700860931 /* DataDownloader.m in Sources */,
+				C07A18831434AEC300860931 /* GDataXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +382,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -377,8 +401,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -390,6 +416,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumblrPhotoViewer/TumblrPhotoViewer-Prefix.pch";
 				INFOPLIST_FILE = "TumblrPhotoViewer/TumblrPhotoViewer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -401,6 +431,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumblrPhotoViewer/TumblrPhotoViewer-Prefix.pch";
 				INFOPLIST_FILE = "TumblrPhotoViewer/TumblrPhotoViewer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
