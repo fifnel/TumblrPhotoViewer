@@ -16,6 +16,7 @@
 @synthesize RefreshButton;
 @synthesize DownloadProgress;
 @synthesize TextView;
+@synthesize ImageListview;
 
 - (void)didReceiveMemoryWarning
 {
@@ -43,6 +44,7 @@
     [self setDownloadProgress:nil];
     [self setMainView:nil];
     [self setTextView:nil];
+    [self setImageListview:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -60,6 +62,7 @@
     [DownloadProgress release];
     [MainView release];
     [TextView release];
+    [ImageListview release];
     [super dealloc];
 }
 
@@ -90,20 +93,25 @@
 	// get thumbnails by xpath
 	NSArray* userList = [rootNode nodesForXPath:@"//channel/item/media:thumbnail" namespaces:ns error:&error];
     NSMutableString *result = [[NSMutableString alloc]init];
-    NSString *hoge;
     int i=0;
+    float height=100.0f;
+    float width=320.0/3.0f;
 	for(GDataXMLElement* node in userList) {
 		NSLog(@"node:%@", [node stringValue]);
-        if (i==0)
-            hoge = [NSString stringWithString:[[node attributeForName:@"url"] stringValue]];
+
+        NSString *thumburl = [NSString stringWithString:[[node attributeForName:@"url"] stringValue]];
+        UIAsyncImageView *image = [[UIAsyncImageView alloc]initWithFrame:CGRectMake(i%3*width, i/3*height,width,height)];
+        [image loadImage:thumburl];
+        [ImageListview addSubview:image];
+        [image release];    
+
         i++;
+        
+        // for debug
         [result appendString:[[node attributeForName:@"url"] stringValue]];
         [result appendString:@"\n"];
 	}
-    UIAsyncImageView *image = [[UIAsyncImageView alloc]initWithFrame:CGRectMake(10.0f, 10.0f, 100.0f, 100.0f)];
-    [image loadImage:hoge];
-    [MainView addSubview:image];
-    [image release];    
+    [ImageListview setContentSize:CGSizeMake(320, i/3*height+height)];
 	
 	[document release];
     

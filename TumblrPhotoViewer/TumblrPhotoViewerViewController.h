@@ -15,6 +15,7 @@
     UIToolbar *RefreshButton;
     UIProgressView *DownloadProgress;
     UITextView *TextView;
+    UIScrollView *ImageListview;
     UIScrollView *MainView;
 }
 @property (nonatomic, retain) IBOutlet UIScrollView *MainView;
@@ -23,5 +24,6 @@
 @property (nonatomic, retain) IBOutlet UIProgressView *DownloadProgress;
 @property (nonatomic, retain) IBOutlet UITextView *TextView;
 
+@property (nonatomic, retain) IBOutlet UIScrollView *ImageListview;
 - (IBAction)onRefresh:(id)sender;
 @end

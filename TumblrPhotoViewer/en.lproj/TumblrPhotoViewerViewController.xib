@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBProxyObject</string>
-			<string>IBUIBarButtonItem</string>
 			<string>IBUIProgressView</string>
+			<string>IBUIBarButtonItem</string>
+			<string>IBProxyObject</string>
 			<string>IBUIToolbar</string>
 			<string>IBUITextView</string>
 			<string>IBUIScrollView</string>
@@ -96,7 +96,7 @@
 							<object class="IBUITextView" id="962838662">
 								<reference key="NSNextResponder" ref="765286885"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 154}, {320, 189}}</string>
+								<string key="NSFrame">{{0, 44}, {320, 45}}</string>
 								<reference key="NSSuperview" ref="765286885"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -121,8 +121,19 @@
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
+							<object class="IBUIScrollView" id="979185345">
+								<reference key="NSNextResponder" ref="765286885"/>
+								<int key="NSvFlags">268</int>
+								<string key="NSFrame">{{0, 97}, {320, 363}}</string>
+								<reference key="NSSuperview" ref="765286885"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:174</string>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIMultipleTouchEnabled">YES</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
 						</object>
-						<string key="NSFrameSize">{320, 460}</string>
+						<string key="NSFrame">{{0, -5}, {320, 460}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="839509391"/>
@@ -177,19 +188,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">MainView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="765286885"/>
-					</object>
-					<int key="connectionID">27</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">TextView</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="962838662"/>
 					</object>
 					<int key="connectionID">28</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">MainView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="979185345"/>
+					</object>
+					<int key="connectionID">30</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">ImageListview</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="979185345"/>
+					</object>
+					<int key="connectionID">31</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -220,6 +239,7 @@
 							<reference ref="765286885"/>
 						</object>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
@@ -228,6 +248,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="839509391"/>
 							<reference ref="962838662"/>
+							<reference ref="979185345"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -247,11 +268,6 @@
 						<reference key="parent" ref="839509391"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">21</int>
-						<reference key="object" ref="962838662"/>
-						<reference key="parent" ref="765286885"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
 						<reference key="object" ref="341286717"/>
 						<object class="NSMutableArray" key="children">
@@ -264,6 +280,16 @@
 						<int key="objectID">23</int>
 						<reference key="object" ref="814438337"/>
 						<reference key="parent" ref="341286717"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">21</int>
+						<reference key="object" ref="962838662"/>
+						<reference key="parent" ref="765286885"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">29</int>
+						<reference key="object" ref="979185345"/>
+						<reference key="parent" ref="765286885"/>
 					</object>
 				</object>
 			</object>
@@ -281,6 +307,7 @@
 					<string>21.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
+					<string>29.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -288,6 +315,7 @@
 					<string>TumblrPhotoViewerViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -310,7 +338,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">28</int>
+			<int key="maxID">31</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -334,6 +362,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DownloadProgress</string>
+							<string>ImageListview</string>
 							<string>MainView</string>
 							<string>RefreshButton</string>
 							<string>TextView</string>
@@ -341,6 +370,7 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIProgressView</string>
+							<string>UIScrollView</string>
 							<string>UIScrollView</string>
 							<string>UIToolbar</string>
 							<string>UITextView</string>
@@ -351,6 +381,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DownloadProgress</string>
+							<string>ImageListview</string>
 							<string>MainView</string>
 							<string>RefreshButton</string>
 							<string>TextView</string>
@@ -360,6 +391,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">DownloadProgress</string>
 								<string key="candidateClassName">UIProgressView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">ImageListview</string>
+								<string key="candidateClassName">UIScrollView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">MainView</string>
