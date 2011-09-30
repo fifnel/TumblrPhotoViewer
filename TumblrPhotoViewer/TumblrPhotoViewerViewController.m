@@ -9,11 +9,13 @@
 #import "TumblrPhotoViewerViewController.h"
 
 #import "GDataXMLNode.h"
+#import "UIAsyncImageView.h"
 
 @implementation TumblrPhotoViewerViewController
+@synthesize MainView;
 @synthesize RefreshButton;
-@synthesize ImageListView;
 @synthesize DownloadProgress;
+@synthesize TextView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,10 +38,11 @@
 - (void)viewDidUnload
 {
     [self setRefreshButton:nil];
-    [self setImageListView:nil];
     [TextView release];
     TextView = nil;
     [self setDownloadProgress:nil];
+    [self setMainView:nil];
+    [self setTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -53,9 +56,10 @@
 
 - (void)dealloc {
     [RefreshButton release];
-    [ImageListView release];
     [TextView release];
     [DownloadProgress release];
+    [MainView release];
+    [TextView release];
     [super dealloc];
 }
 
@@ -86,11 +90,20 @@
 	// get thumbnails by xpath
 	NSArray* userList = [rootNode nodesForXPath:@"//channel/item/media:thumbnail" namespaces:ns error:&error];
     NSMutableString *result = [[NSMutableString alloc]init];
+    NSString *hoge;
+    int i=0;
 	for(GDataXMLElement* node in userList) {
 		NSLog(@"node:%@", [node stringValue]);
+        if (i==0)
+            hoge = [NSString stringWithString:[[node attributeForName:@"url"] stringValue]];
+        i++;
         [result appendString:[[node attributeForName:@"url"] stringValue]];
         [result appendString:@"\n"];
 	}
+    UIAsyncImageView *image = [[UIAsyncImageView alloc]initWithFrame:CGRectMake(10.0f, 10.0f, 100.0f, 100.0f)];
+    [image loadImage:hoge];
+    [MainView addSubview:image];
+    [image release];    
 	
 	[document release];
     

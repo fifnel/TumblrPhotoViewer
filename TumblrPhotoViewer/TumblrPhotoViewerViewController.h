@@ -13,14 +13,15 @@
     DataDownloader *downloader;
     
     UIToolbar *RefreshButton;
-    UIScrollView *ImageListView;
     UIProgressView *DownloadProgress;
-    IBOutlet UITextView *TextView;
+    UITextView *TextView;
+    UIScrollView *MainView;
 }
+@property (nonatomic, retain) IBOutlet UIScrollView *MainView;
 
 @property (nonatomic, retain) IBOutlet UIToolbar *RefreshButton;
-@property (nonatomic, retain) IBOutlet UIScrollView *ImageListView;
 @property (nonatomic, retain) IBOutlet UIProgressView *DownloadProgress;
+@property (nonatomic, retain) IBOutlet UITextView *TextView;
 
 - (IBAction)onRefresh:(id)sender;
 @end
