@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TextDownloadDelegate.h"
+#import "DataDownloaderDelegate.h"
 
 @interface DataDownloader : NSObject
 {
